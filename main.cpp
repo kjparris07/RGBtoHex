@@ -51,7 +51,21 @@ string toHex(int num) {
 }
 
 using namespace std;
+string rgbToHex(const string& rgb) {
+    int* nums = parseStr(rgb);
+    string hex;
+    for (int i=0; i < 3; i++) {
+        string hexVal = toHex(nums[i]);
+        if (hexVal.length() == 1) {
+            hex.append("0");
+        }
+        hex.append(toHex(nums[i]));
+    }
+    return hex;
+}
+
+using namespace std;
 int main() {
-    cout << toHex(110) << endl;
+    cout << rgbToHex("rgb(110, 1, 43") << endl;
     return 0;
 }
