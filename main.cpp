@@ -39,8 +39,19 @@ int* parseStr(const string& str) {
 }
 
 using namespace std;
+string toHex(int num) {
+    string vals[] = {"A", "B", "C", "D", "E", "F"};
+    if (num < 10) {
+        return to_string(num);
+    }
+    if (num < 16) {
+        return vals[num - 10];
+    }
+    return toHex(num / 16) + toHex(num % 16);
+}
+
+using namespace std;
 int main() {
-    int* result = parseStr("10,11,12");
-    cout << result[0] << " " << result[1] << " " << result[2] << endl;
+    cout << toHex(110) << endl;
     return 0;
 }
